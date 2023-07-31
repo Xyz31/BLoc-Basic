@@ -5,16 +5,26 @@ abstract class SignInStates extends Equatable {
   List<Object?> get props => [];
 }
 
-class SignInInitial extends SignInStates {}
+class SignInInitialState extends SignInStates {}
 
-class SignInInvalid extends SignInStates {}
+class SignInInvalidState extends SignInStates {}
 
-class SignInValid extends SignInStates {}
+class SignInValidState extends SignInStates {}
 
-class SignInError extends SignInStates {
+class SignInErrorState extends SignInStates {
   final String errorMessage;
+  SignInErrorState(this.errorMessage);
 
-  SignInError(this.errorMessage);
+  @override
+  List<Object?> get props => [errorMessage];
 }
 
-class SignInLoading extends SignInStates {}
+class SignInLoadingState extends SignInStates {}
+
+class SignInSuccessState extends SignInStates {
+  final String userId;
+  SignInSuccessState(this.userId);
+
+  @override
+  List<Object?> get props => [userId];
+}

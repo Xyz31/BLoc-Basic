@@ -3,23 +3,24 @@ import 'package:bloc3_form_validate/SignIn/Blocs/signin-blocSatates.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-/*
-class SignInEmailBloc extends Bloc<SignInEvent, SignInStates> {
-  SignInEmailBloc() : super(SignInInitial()) {
+class SignInBloc extends Bloc<SignInEvent, SignInStates> {
+  SignInBloc() : super(SignInInitialState()) {
     on<SignInEventTextChanged>((event, emit) => {
-          if (event.emailValue == '' &&
-              EmailValidator.validate(event.emailValue))
-            {emit(SignInError('Enter a valid mail'))}
+          if (event.emailValue == '' ||
+              EmailValidator.validate(event.emailValue) == false)
+            {emit(SignInErrorState('Enter a valid mail'))}
           else if (event.passwordValue.length < 6)
-            {emit(SignInError('invalid password'))}
+            {emit(SignInErrorState('invalid password'))}
           else
-            {emit(SignInValid())}
+            {emit(SignInValidState())}
         });
 
-    on<SignInEventSubmit>((event, emit) => emit(SignInLoading()));
+    on<SignInEventSubmit>((event, emit) => emit(SignInLoadingState()));
   }
 }
-*/
+
+
+/*
 import 'package:bloc3_form_validate/SignIn/Blocs/signin-blocEvent.dart';
 import 'package:bloc3_form_validate/SignIn/Blocs/signin-blocSatates.dart';
 import 'package:email_validator/email_validator.dart';
@@ -41,3 +42,4 @@ class SignInBloc extends Bloc<SignInEvent, SignInStates> {
     on<SignInEventSubmit>((event, emit) => emit(SignInLoading()));
   }
 }
+*/

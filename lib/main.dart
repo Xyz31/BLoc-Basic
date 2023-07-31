@@ -1,6 +1,6 @@
 import 'package:bloc3_form_validate/SignIn/Blocs/signin-bloc.dart';
 import 'package:bloc3_form_validate/SignIn/Blocs/signin-blocSatates.dart';
-import 'package:bloc3_form_validate/SignIn/utils/signEmail.dart';
+import 'package:bloc3_form_validate/SignIn/utils/signInEmail.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,16 +15,19 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-            useMaterial3: true,
-            fontFamily: 'Raleway'),
-        home: //MyHomePage(title: 'Bloc Form Validation')
-            BlocProvider<SignInBloc>(
-          create: (context) => SignInBloc(),
-          child: MyHomePage(title: 'Flutter Demo Home Page'),
+    return BlocProvider<SignInBloc>(
+        create: (context) => SignInBloc(),
+        child: MaterialApp(
+          title: 'Flutter Demo',
+          theme: ThemeData(
+              colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+              useMaterial3: true,
+              fontFamily: 'Raleway'),
+          home: //MyHomePage(title: 'Bloc Form Validation')
+              //   BlocProvider<SignInBloc>(
+              // create: (context) => SignInBloc(),
+              // child:
+              const MyHomePage(title: 'Flutter Demo Home Page'),
         ));
   }
 }
@@ -43,14 +46,14 @@ class MyHomePage extends StatelessWidget {
           // BlocProvider<SignInBloc>(
           //   create: (context) => SignInBloc(),
           //   child:
-          TextButton(
+          FilledButton(
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => SignWithEmail()),
+                MaterialPageRoute(builder: (context) => const SignWithEmail()),
               );
             },
-            child: Text(
+            child: const Text(
               'Sign In Email',
               style: TextStyle(
                 fontSize: 30,
