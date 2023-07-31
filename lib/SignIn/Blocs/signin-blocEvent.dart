@@ -5,6 +5,8 @@ abstract class SignInEvent extends Equatable {
   List<Object?> get props => [];
 }
 
+class SignInInitialEvent extends SignInEvent {}
+
 class SignInEventTextChanged extends SignInEvent {
   final String emailValue;
   final String passwordValue;

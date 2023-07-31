@@ -1,4 +1,5 @@
 import 'package:bloc3_form_validate/SignIn/Blocs/signin-bloc.dart';
+import 'package:bloc3_form_validate/SignIn/Blocs/signin-blocEvent.dart';
 import 'package:bloc3_form_validate/SignIn/Blocs/signin-blocSatates.dart';
 import 'package:bloc3_form_validate/SignIn/utils/signInEmail.dart';
 import 'package:flutter/cupertino.dart';
@@ -48,6 +49,7 @@ class MyHomePage extends StatelessWidget {
           //   child:
           FilledButton(
             onPressed: () {
+              BlocProvider.of<SignInBloc>(context).add(SignInInitialEvent());
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const SignWithEmail()),
