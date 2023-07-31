@@ -21,13 +21,11 @@ class MyApp extends StatelessWidget {
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             useMaterial3: true,
             fontFamily: 'Raleway'),
-        home: MyHomePage(title: 'Bloc Form Validation')
-        /*BlocProvider<SignInEmailBloc>(
-        create: (context) => SignInEmailBloc(),
-        child: MyHomePage(title: 'Flutter Demo Home Page'),
-      ),
-      */
-        );
+        home: //MyHomePage(title: 'Bloc Form Validation')
+            BlocProvider<SignInBloc>(
+          create: (context) => SignInBloc(),
+          child: MyHomePage(title: 'Flutter Demo Home Page'),
+        ));
   }
 }
 
@@ -42,20 +40,20 @@ class MyHomePage extends StatelessWidget {
           title: Text(title),
         ),
         body: Column(children: [
-          BlocProvider<SignInBloc>(
-            create: (context) => SignInBloc(),
-            child: TextButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => SignWithEmail()),
-                );
-              },
-              child: Text(
-                'Sign In Email',
-                style: TextStyle(
-                  fontSize: 30,
-                ),
+          // BlocProvider<SignInBloc>(
+          //   create: (context) => SignInBloc(),
+          //   child:
+          TextButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SignWithEmail()),
+              );
+            },
+            child: Text(
+              'Sign In Email',
+              style: TextStyle(
+                fontSize: 30,
               ),
             ),
           ),
