@@ -42,21 +42,11 @@ class SignWithEmail extends StatelessWidget {
               TextField(
                 controller: _textController,
                 onChanged: (val) {
-                  /*
-                      BlocProvider.of<SignInEmailBloc>(context).add(
-                          SignInEventTextChanged(_textController.toString(),
-                              _passwordController.toString()));
-                              */
+                  BlocProvider.of<SignInBloc>(context).add(
+                      SignInEventTextChanged(_textController.toString(),
+                          _passwordController.toString()));
+
                   // Use context.read to directly access the SignInEmailBloc instance
-                  /*
-                      context.read<SignInBloc>().add(
-                            SignInEventTextChanged(
-                              _textController
-                                  .text, // Use text property to get the current text
-                              _passwordController.text,
-                            ),
-                          );
-                        */
                 },
                 style: const TextStyle(
                   color: Colors.black, // Text color
@@ -96,15 +86,9 @@ class SignWithEmail extends StatelessWidget {
                           _textController.text, _passwordController.text));
 
                   // Use context.read to directly access the SignInEmailBloc instance
-                  /*
-                      context.read<SignInBloc>().add(
-                            SignInEventTextChanged(
-                              _textController
-                                  .text, // Use text property to get the current text
-                              _passwordController.text,
-                            ),
-                          );
-                          */
+                  BlocProvider.of<SignInBloc>(context).add(
+                      SignInEventTextChanged(_textController.toString(),
+                          _passwordController.toString()));
                 },
                 style: const TextStyle(
                   color: Colors.black, // Text color
